@@ -3,36 +3,38 @@
 treasure = []
 inv = {}
 
-
 while True:
-    print("\nchoose an option:")
-    print("1 find/get a treasure")
-    print("2 update inventory")
-    print("3 display inventory")
-    print("4 quit")
+    print("\nChoose an option:")
+    print("1. Add a treasure")
+    print("2. Update inventory")
+    print("3. Display inventory")
+    print("4. Quit")
 
-    choice = input("enter your choice: ")
+    choice = input("Enter your choice: ")
 
 if choice == "1":
-    name = input("treasure name: ")
-    quantity = int(input("enter quantity: "))
-    value = int(input("value per unit: "))
+    name = input("Enter the name of the treasure: ")
+    quantity = int(input("Enter the quantity: "))
+    value = int(input("Enter the value per unit: "))
+    
     treasures.append(name)
-    invetory[name] = {"quantity":quantity,"value per unit": value}
-    print(f"{name} added to your invetory")
+    inventory[name] = {"quantity": quantity, "value_per_unit": value}
+    print(f"{name} added to your inventory.")
 elif choice == "2":
-    name = input("name of tyreasure to update: ")
-    if name in invetory:
-        new_quantity = int(input("enter the new quantity: "))
-        value = int(input("enter the new value per unit: "))
+    name = input("Enter the name of the treasure to update: ")
+    if name in inventory:
+        new_quantity = int(input("Enter the new quantity: "))
+        new_value = int(input("Enter the new value per unit: "))
         inventory[name]["quantity"] = new_quantity
-        inventory[name]["value per unit"] = new_value
-        print(f"{name} updated in your inventory")
+        inventory[name]["value_per_unit"] = new_value
+        print(f"{name} updated in your inventory.")
     else:
-        print("Treasure not found in inventory")
+        print("Treasure not found in inventory.")
 elif choice == "3":
     for item, details in inventory.items():
-        print(f"name: {item}, quantity: {details['quantity']}, value per unit: {details['value per unit']}")
+        print(f"Name: {item}, Quantity: {details['quantity']}, Value per Unit: {details['value_per_unit']}")
+# Exit Condition:
+# Allow the user to quit the loop when they’re done.
 elif choice == "4":
     print("Good luck on your quest!")
 else:
